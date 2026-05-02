@@ -11,6 +11,8 @@ import { auth } from '../../firebase';
 import { ClipLoader } from "react-spinners"
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
+import logo from "../assets/logo.png";
+
 function SignUp() {
     const primaryColor = "#ff4d2d";
     const hoverColor = "#e64323";
@@ -64,7 +66,9 @@ function SignUp() {
             <div className={`bg-white rounded-xl shadow-lg w-full max-w-md p-8 border-[1px] `} style={{
                 border: `1px solid ${borderColor}`
             }}>
-                <h1 className={`text-3xl font-bold mb-2 `} style={{ color: primaryColor }}>Vingo</h1>
+                <div className="flex items-center justify-center">
+                    <img className={`w-18 h-18 object-contain mb-4 drop-shadow-lg`} src={logo}/>
+                </div>
                 <p className='text-gray-600 mb-8'> Create your account to get started with delicious food deliveries
                 </p>
 
