@@ -17,25 +17,33 @@ import { socketHandler } from "./socket.js"
 const app=express()
 const server=http.createServer(app)
 
-const io=new Server(server,{
-   cors:{
-    origin:"http://localhost:5173",
-    credentials:true,
-    methods:['POST','GET']
-}
+const io = new Server(server, {
+  cors: {
+    origin: [
+      "http://localhost:5173",
+      "https://foody-fy-six.vercel.app"
+    ],
+    credentials: true,
+    methods: ['POST', 'GET']
+  }
 })
 
 app.set("io",io)
 
 
 
-const port=process.env.PORT || 5000
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
+  origin: [
+    "http://localhost:5173",
+    "https://foody-fy-six.vercel.app"
+  ],
+  credentials: true
 }))
 app.get("/", (req, res) => {
     res.send("FoodyFy Backend is Running 🚀");
+});
+app.get("/api", (req, res) => {
+    res.send("API is running 🚀");
 });
 
 app.use(express.json())
@@ -47,6 +55,7 @@ app.use("/api/item",itemRouter)
 app.use("/api/order",orderRouter)
 
 socketHandler(io)
+const port = process.env.PORT || 5000
 server.listen(port,()=>{
     connectDb()
     console.log(`server started at ${port}`)

@@ -1,0 +1,1 @@
+export const BASE_URL = "https://foodyfy-production.up.railway.app/";
