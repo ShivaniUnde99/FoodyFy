@@ -3,7 +3,7 @@ import Order from "../models/order.model.js"
 import Shop from "../models/shop.model.js"
 import User from "../models/user.model.js"
 import { sendDeliveryOtpMail } from "../utils/mail.js"
-import RazorPay from "razorpay"
+import Razorpay from "razorpay"
 import dotenv from "dotenv"
 import { count } from "console"
 
